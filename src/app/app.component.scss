@@ -1,0 +1,105 @@
+.logo {
+    font-family: 'Tangerine', cursive;
+    font-size: 48px;
+}
+
+.mdl-layout__header-row {
+    padding-left: 32px;
+    .yc-search {
+        padding: 16px;
+        label {
+            font-size: 32px;
+            position: relative;
+            top: 2px;
+            i {
+                font-size: 32px;
+            }
+        }
+
+        .mdl-textfield__expandable-holder {
+            width: 420px;
+            margin-left: 0px;
+
+            input {
+                border-bottom: 2px solid rgba(0,0,0,0.22);
+            }
+        }
+    }
+    .yc-cart-meta {
+        font-size: 36px;
+    }
+}
+
+.yc-product {
+    padding: 16px;
+    .yc-product-image {
+        width: 100%;
+        height: 300px;
+
+        .mdl-card__title {
+            background: url(/assets/images/no-image-icon.png) center no-repeat;
+            background-size: cover;
+            -webkit-transition: -webkit-transform 0.6s;
+            transition: transform 0.6s;
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+        }
+
+        &.in-cart {
+            box-shadow: 0 2px 2px 0 rgba(124,77,255,0.54), 0 3px 1px -2px rgba(124,77,255,0.4), 0 1px 5px 0 rgba(124,77,255,0.22);
+        }
+    }
+    .mdl-card__actions {
+        cursor: pointer;
+        color: #fff;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        padding: 0;
+        -webkit-transition: -webkit-transform 0.35s;
+        transition: transform 0.35s;
+        -webkit-transform: translate3d(0,100%,0);
+        transform: translate3d(0,100%,0);
+
+        .add-to-cart, .remove-from-cart {
+            display: flex;
+            padding: 8px;
+        }
+        .add-to-cart {
+            background: rgba(33, 150, 243, 0.7);
+        }
+        .remove-from-cart {
+            background: rgba(124,77,255,0.7);
+        }
+
+        span {
+            line-height: 24px;
+        }
+    }
+    .mdl-card__title-text {
+        font-size: 14px;
+    }
+
+    .mdl-card__menu {
+        background: url(/assets/images/rupee.png) center left no-repeat;
+        background-size: 12px;
+        padding-left: 12px;
+        opacity: 0.8;
+    }
+
+    &:hover {
+        .mdl-card__actions {
+            -webkit-transform: translate3d(0,0,0);
+	        transform: translate3d(0,0,0);
+        }
+
+        .yc-product-image .mdl-card__title {
+            -webkit-transform: translate3d(0,-40px,0);
+	        transform: translate3d(0,-40px,0);
+        }
+
+    }
+}

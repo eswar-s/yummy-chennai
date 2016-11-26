@@ -1,3 +1,48 @@
-<h1>
-  {{title}}
-</h1>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title logo">Yummy Chennai</span>
+      <div class="mdl-layout-spacer"></div>
+      <div class="yc-search mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+        <label class="mdl-button mdl-js-button mdl-button--icon"
+               for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample" [(ngModel)]="searchTerm"
+                 placeholder="search products" id="fixed-header-drawer-exp">
+        </div>
+      </div>
+      <div class="yc-cart-meta material-icons mdl-badge mdl-badge--overlap" [attr.data-badge]="cartItems.length">shopping_cart</div>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="mdl-grid">
+        <div *ngFor="let product of products | productFilter: searchTerm" class="yc-product mdl-cell mdl-cell--3-col">
+          <div class="yc-product-image mdl-card mdl-shadow--2dp" [class.in-cart]="product.inCart">
+            <div class="mdl-card__title mdl-card--expand" [style.background-image]="'url(' + product.image + ')'">
+              <h2 class="mdl-card__title-text">{{product.name}}</h2>
+            </div>
+            <div class="mdl-card__actions">
+              <div class="add-to-cart" [hidden]="product.inCart" (click)="addToCart(product)">
+                <span>Add to Cart</span>
+                <div class="mdl-layout-spacer"></div>
+                <i class="material-icons">add_shopping_cart</i>
+              </div>
+              <div class="remove-from-cart" [hidden]="!product.inCart" (click)="removeFromCart(product)">
+                <span>Remove from Cart</span>
+                <div class="mdl-layout-spacer"></div>
+                <i class="material-icons">remove_shopping_cart</i>
+              </div>
+            </div>
+            <div class="mdl-card__menu">
+              {{product.price}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
