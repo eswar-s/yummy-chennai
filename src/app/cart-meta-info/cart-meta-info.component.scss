@@ -1,0 +1,11 @@
+div {
+    font-size: 36px;
+
+    &:after {
+        transition: transform 0.5s ease;
+    }
+
+    &.active:after {
+        transform: scale(1.2);
+    }
+}

@@ -14,7 +14,7 @@
                  placeholder="search products" id="fixed-header-drawer-exp">
         </div>
       </div>
-      <div class="yc-cart-meta material-icons mdl-badge mdl-badge--overlap" [attr.data-badge]="cartItems.length">shopping_cart</div>
+      <yc-cart-meta-info [count]="cartItems.length"></yc-cart-meta-info>
     </div>
   </header>
   <main class="mdl-layout__content">

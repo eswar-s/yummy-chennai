@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ProductFilterPipe } from './product.pipe';
+import { CartMetaInfoComponent } from './cart-meta-info/cart-meta-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductFilterPipe
+    ProductFilterPipe,
+    CartMetaInfoComponent
   ],
   imports: [
     BrowserModule,
