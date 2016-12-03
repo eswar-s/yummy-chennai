@@ -34,6 +34,7 @@
         height: 300px;
 
         .mdl-card__title {
+            cursor: pointer;
             background: url(/assets/images/no-image-icon.png) center no-repeat;
             background-size: cover;
             -webkit-transition: -webkit-transform 0.6s;
@@ -99,4 +100,83 @@
         }
 
     }
+}
+
+.yc-product-details-overlay-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+    top: 64px;
+
+    .yc-product-details-overlay {
+        display: flex;
+        background: #fff;
+        position: relative;
+        padding: 32px 0;
+        height: auto;
+        margin: 0 auto;
+        max-width: 960px;
+
+        .yc-product-image-container {
+            width: 400px;
+
+            .yc-product-image {
+                background-image: url(/assets/images/biscuits/pista_badam.jpg);
+                height: 250px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        .yc-product-info-container {
+            width: 560px;
+            .yc-product-title {
+                font-size: 32px;
+                color: #333;
+            }
+            .yc-product-price {
+                font-size: 18px;
+                color: #2196f3;
+                background: url(/assets/images/rupee.png) center left no-repeat;
+                background-size: 14px;
+                padding-left: 16px;
+                margin-bottom: 8px;
+            }
+            .yc-product-description {
+                font-weight: 600;
+                color: #555;
+                margin: 0;
+            }
+            .yc-product-ingredients {
+                color: #777;
+                .yc-product-ingredients-icon {
+                    background: url(/assets/images/ingredients.png) center left no-repeat;
+                    background-size: 14px;
+                    height: 14px;
+                    width: 16px;
+                    display: inline-block;
+                }
+            }
+        }
+
+        .yc-close {
+            cursor: pointer;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 32px;
+        }
+
+        .yc-product-cart-action {
+            height: 56px;
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+        }
+    }
+
+
 }
