@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
       this.products.push(Object.assign({}, product, {
         id: index,
         inCart: false
-      }))
-    })
+      }));
+    });
     this.cartItems = [];
   }
 
@@ -33,8 +33,10 @@ export class AppComponent implements OnInit {
 
   removeFromCart(product: Product) {
     this.cartItems = this.cartItems.filter(item => {
-      if(item.id == product.id) product.inCart = false;
-      return item.id != product.id;
+      if (item.id === product.id) {
+        product.inCart = false;
+      }
+      return item.id !== product.id;
     });
   }
 }
