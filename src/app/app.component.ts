@@ -65,23 +65,39 @@ export class AppComponent implements OnInit {
 
   isCart: boolean = false;
 
+  constructor() {
+    this.products = [];
+    this.cartItems = [];
+    let storedProducts = JSON.parse(localStorage.getItem('products'));
+    if (storedProducts && storedProducts.length > 0) {
+      storedProducts.forEach((product, index) => {
+        this.products.push(Object.assign({}, product));
+      });
+      this.cartItems = this.products.filter(item => {
+        return item.inCart;
+      });
+    }
+  }
+
   ngOnInit() {
     this.searchTerm = '';
-    this.products = [];
-    products_store.forEach((product, index) => {
-      this.products.push(Object.assign({}, product, {
-        id: index,
-        inCart: false,
-        quantity: 0
-      }));
-    });
-    this.cartItems = [];
+    if (this.products.length === 0) {
+      products_store.forEach((product, index) => {
+        this.products.push(Object.assign({}, product, {
+          id: index,
+          inCart: false,
+          quantity: 0
+        }));
+      });
+      localStorage.setItem('products', JSON.stringify(this.products));
+    }
   }
 
   addToCart(product: Product) {
     product.inCart = true;
     product.quantity = 1;
     this.cartItems.push(product);
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
 
   removeFromCart(product: Product) {
@@ -91,6 +107,7 @@ export class AppComponent implements OnInit {
       }
       return item.id !== product.id;
     });
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
 
   showProductInfo(product: Product) {
@@ -111,6 +128,15 @@ export class AppComponent implements OnInit {
 
   closeCart() {
     this.isCart = false;
+    this.products.forEach(item => {
+      if (item.quantity === 0 && item.inCart) {
+        item.inCart = false;
+      }
+    });
+    this.cartItems = this.products.filter(item => {
+      return item.inCart;
+    });
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
 
   getTotalPrice() {
