@@ -19,6 +19,17 @@ import { products_store } from './products_store';
         style({ visibility: 'visible', transform: 'translateY(0%)' }),
         animate('0.3s', style({ transform: 'translateY(-100%)' }))
       ])
+    ]),
+    trigger('ycSlideBottom', [
+      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition('in => void', [
+        style({ transform: 'translateY(0)', opacity: 1 }),
+        animate('0.3s', style({ transform: 'translateY(100%)', opacity: 0 }))
+      ]),
+      transition('void => *', [
+        style({ transform: 'translateY(100%)', opacity: 0 }),
+        animate('0.3s 300ms', style({ transform: 'translateY(0)', opacity: 1 }))
+      ])
     ])
   ]
 })
@@ -63,14 +74,20 @@ export class AppComponent implements OnInit {
   closeProductInfo() {
     this.selectedProduct = null;
   }
+
+  computeDiscountPrice(price: number, offer: number) {
+    return price - Math.floor((price / 100) * offer);
+  }
 }
 
 export interface Product {
   name: string;
   price: number;
+  offer: number;
   image: string;
   description?: string;
   ingredients?: string;
+  link: string;
   id?: number;
   inCart?: boolean;
 }

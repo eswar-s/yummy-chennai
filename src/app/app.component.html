@@ -20,26 +20,33 @@
   <main class="mdl-layout__content">
     <div class="page-content">
       <div class="mdl-grid" style="background-color: #fafafa;">
-        <div *ngFor="let product of products | productFilter: searchTerm" class="yc-product mdl-cell mdl-cell--3-col">
+        <div *ngFor="let product of products | productFilter: searchTerm" class="yc-product mdl-cell mdl-cell--3-col mdl-cell--4-col-phone mdl-cell--4-col-tablet">
           <div class="yc-product-image mdl-card mdl-shadow--2dp" [class.in-cart]="product.inCart">
             <div class="mdl-card__title mdl-card--expand" [style.background-image]="'url(' + product.image + ')'"
               (click)="showProductInfo(product)">
               <h2 class="mdl-card__title-text">{{product.name}}</h2>
             </div>
             <div class="mdl-card__actions">
-              <div class="add-to-cart" [hidden]="product.inCart" (click)="addToCart(product)">
-                <span>Add to Cart</span>
-                <div class="mdl-layout-spacer"></div>
-                <i class="material-icons">add_shopping_cart</i>
-              </div>
-              <div class="remove-from-cart" [hidden]="!product.inCart" (click)="removeFromCart(product)">
-                <span>Remove from Cart</span>
-                <div class="mdl-layout-spacer"></div>
-                <i class="material-icons">remove_shopping_cart</i>
+              <div class="yc-cart-actions">
+                <ng-container *ngIf="!product.inCart">
+                  <div class="add-to-cart" [@ycSlideBottom]="'in'" (click)="addToCart(product)">
+                    <span>Add to Cart</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <i class="material-icons">add_shopping_cart</i>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="product.inCart">
+                  <div class="remove-from-cart"  [@ycSlideBottom]="'in'" (click)="removeFromCart(product)">
+                    <span>Remove from Cart</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <i class="material-icons">remove_shopping_cart</i>
+                  </div>
+                </ng-container>
               </div>
             </div>
             <div class="mdl-card__menu">
-              {{product.price}}
+              <div *ngIf="!product.offer"><span class="yc-discount-price">{{product.price}}</span></div>
+              <div *ngIf="product.offer"><span class="yc-actual-price">{{product.price}}</span><span class="yc-discount-price">{{computeDiscountPrice(product.price, product.offer)}}</span><span class="yc-offer-percent">({{product.offer}}% Off)</span></div>
             </div>
           </div>
         </div>
@@ -55,12 +62,20 @@
     </div>
     <div class="yc-product-info-container">
       <p class="yc-product-title">{{selectedProduct.name}}</p>
-      <p class="yc-product-price">{{selectedProduct.price}}</p>
+      <div class="yc-product-price" *ngIf="!selectedProduct.offer">
+        <span class="yc-discount-price">{{selectedProduct.price}}</span>
+      </div>
+      <div class="yc-product-price" *ngIf="selectedProduct.offer">
+        <span class="yc-actual-price">{{selectedProduct.price}}</span>
+        <span class="yc-discount-price">{{computeDiscountPrice(selectedProduct.price, selectedProduct.offer)}}</span>
+        <span class="yc-offer-percent">({{selectedProduct.offer}}% Off)</span>
+      </div>
       <p class="yc-product-description">{{selectedProduct.description}}</p>
       <p class="yc-product-ingredients">
         <i class="yc-product-ingredients-icon"></i>
         {{selectedProduct.ingredients}}
       </p>
+      <a [href]="selectedProduct.link">Know more</a>
     </div>
     <i class="material-icons yc-close" (click)="closeProductInfo()">close</i>
     <div class="yc-product-cart-action">
