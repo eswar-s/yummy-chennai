@@ -79,14 +79,18 @@
     </div>
     <i class="material-icons yc-close" (click)="closeProductInfo()">close</i>
     <div class="yc-product-cart-action">
-      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"  style="background: #2196f3;"
-        *ngIf="!selectedProduct.inCart" (click)="addToCart(selectedProduct)" title="add to cart">
-        <i class="material-icons">add_shopping_cart</i>
-      </button>
-      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" 
-        *ngIf="selectedProduct.inCart" (click)="removeFromCart(selectedProduct)" title="remove from cart">
-        <i class="material-icons">remove_shopping_cart</i>
-      </button>
+      <div class="yc-cart-button-container">
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="background: #2196f3;"
+          *ngIf="!selectedProduct.inCart" (click)="addToCart(selectedProduct)" title="add to cart"
+          [@ycZoom]="'in'">
+          <i class="material-icons">add_shopping_cart</i>
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" 
+          *ngIf="selectedProduct.inCart" (click)="removeFromCart(selectedProduct)"
+          title="remove from cart" [@ycZoom]="'in'">
+          <i class="material-icons">remove_shopping_cart</i>
+        </button>
+      </div>
     </div>
   </div>
 </div>

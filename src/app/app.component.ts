@@ -24,11 +24,22 @@ import { products_store } from './products_store';
       state('in', style({ opacity: 1, transform: 'translateY(0)' })),
       transition('in => void', [
         style({ transform: 'translateY(0)', opacity: 1 }),
-        animate('0.3s', style({ transform: 'translateY(100%)', opacity: 0 }))
+        animate('0.2s', style({ transform: 'translateY(100%)', opacity: 0 }))
       ]),
       transition('void => *', [
         style({ transform: 'translateY(100%)', opacity: 0 }),
-        animate('0.3s 300ms', style({ transform: 'translateY(0)', opacity: 1 }))
+        animate('0.2s 150ms', style({ transform: 'translateY(0)', opacity: 1 }))
+      ])
+    ]),
+    trigger('ycZoom', [
+      state('in', style({ opacity: 1, transform: 'scale(1)' })),
+      transition('in => void', [
+        style({ transform: 'scale(1)', opacity: 1 }),
+        animate('0.2s', style({ transform: 'scale(0)', opacity: 0 }))
+      ]),
+      transition('void => *', [
+        style({ transform: 'scale(0)', opacity: 0 }),
+        animate('0.2s 150ms', style({ transform: 'scale(1)', opacity: 1 }))
       ])
     ])
   ]
