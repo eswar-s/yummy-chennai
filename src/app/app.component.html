@@ -114,7 +114,8 @@
             <tr>
               <th class="mdl-data-table__cell--non-numeric">Name</th>
               <th style="text-align: center;">quantity</th>
-              <th class="only-mobile">unit price</th>
+              <th class="only-mobile">unit price (Original) </th>
+              <th class="only-mobile">unit price (Offer) </th>
               <th class="only-mobile">price</th>
             </tr>
           </thead>
@@ -132,6 +133,7 @@
                   <i class="material-icons yc-add" (click)="product.quantity = product.quantity + 1">add_circle_outline</i>
                 </div>
               </td>
+              <td class="only-mobile">{{product.price}}</td>
               <td class="only-mobile">{{computeDiscountPrice(product.price, product.offer)}}</td>
               <td class="only-mobile">{{product.quantity * computeDiscountPrice(product.price, product.offer)}}</td>
             </tr>

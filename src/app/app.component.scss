@@ -199,11 +199,12 @@
     z-index: 3;
 
     .yc-cart {
+        margin-top: 16px;
         margin-bottom: 64px;
         .title {
             text-align: center;
             font-size: 40px;
-            padding: 16px;
+            padding: 16px 16px 8px 16px;
             margin: 0;
             color: #333;
             font-family: 'Tangerine', cursive;
@@ -470,4 +471,11 @@
 
 .mdl-data-table tbody tr:hover {
     background: transparent;
+}
+
+@media screen and (max-width: 368px) {
+    .mdl-data-table td {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
