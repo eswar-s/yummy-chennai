@@ -41,7 +41,18 @@ import { products_store } from './products_store';
         style({ transform: 'scale(0)', opacity: 0 }),
         animate('0.2s 150ms', style({ transform: 'scale(1)', opacity: 1 }))
       ])
-    ])
+    ]),
+    trigger('ycSlideBottomCart', [
+      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition('in => void', [
+        style({ transform: 'translateY(0)', opacity: 1 }),
+        animate('0.4s', style({ transform: 'translateY(100%)', opacity: 0 }))
+      ]),
+      transition('void => *', [
+        style({ transform: 'translateY(100%)', opacity: 0 }),
+        animate('0.4s', style({ transform: 'translateY(0)', opacity: 1 }))
+      ])
+    ]),
   ]
 })
 export class AppComponent implements OnInit {
@@ -52,13 +63,16 @@ export class AppComponent implements OnInit {
   searchTerm: string;
   selectedProduct: Product;
 
+  isCart: boolean = false;
+
   ngOnInit() {
     this.searchTerm = '';
     this.products = [];
     products_store.forEach((product, index) => {
       this.products.push(Object.assign({}, product, {
         id: index,
-        inCart: false
+        inCart: false,
+        quantity: 0
       }));
     });
     this.cartItems = [];
@@ -66,6 +80,7 @@ export class AppComponent implements OnInit {
 
   addToCart(product: Product) {
     product.inCart = true;
+    product.quantity = 1;
     this.cartItems.push(product);
   }
 
@@ -89,6 +104,23 @@ export class AppComponent implements OnInit {
   computeDiscountPrice(price: number, offer: number) {
     return price - Math.floor((price / 100) * offer);
   }
+
+  openCart() {
+    this.isCart = true;
+  }
+
+  closeCart() {
+    this.isCart = false;
+  }
+
+  getTotalPrice() {
+    let totalPrice = 0;
+    this.cartItems.forEach(item => {
+      totalPrice += (item.quantity * this.computeDiscountPrice(item.price, item.offer));
+    });
+    return totalPrice;
+  }
+
 }
 
 export interface Product {
@@ -101,4 +133,5 @@ export interface Product {
   link: string;
   id?: number;
   inCart?: boolean;
+  quantity?: number;
 }

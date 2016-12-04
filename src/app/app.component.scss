@@ -1,14 +1,17 @@
 .logo {
     font-family: 'Tangerine', cursive;
     font-size: 48px;
+    @media screen and (max-width: 768px) {
+        font-size: 40px;
+    }
 }
 
 .mdl-layout__header-row {
-    padding-left: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
     .yc-search {
         padding: 16px;
         label {
-            font-size: 32px;
             position: relative;
             top: 2px;
             i {
@@ -22,6 +25,41 @@
 
             input {
                 border-bottom: 2px solid rgba(0,0,0,0.22);
+            }
+        }
+    }
+
+    .yc-close-cart {
+        font-size: 32px;
+        cursor: pointer;
+    }
+    @media screen and (max-width: 768px) {
+        padding-left: 8px;
+        padding-right: 8px;
+        .yc-search {
+            padding: 12px;
+            label {
+                top: 0;
+                i {
+                    font-size: 26px;
+                }
+            }
+
+            .mdl-textfield__expandable-holder {
+                position: fixed;
+                background: #fff;
+                width: 100%;
+                left: 0;
+                top: 56px;
+
+                input {
+                    color: #333;
+                    border-bottom-width: 1px;
+                }
+            }
+            &.is-focused .mdl-textfield__expandable-holder input,
+            &.is-dirty .mdl-textfield__expandable-holder input {
+                padding: 8px;
             }
         }
     }
@@ -150,6 +188,133 @@
     }
 }
 
+.yc-cart-overlay-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    top: 64px;
+    overflow: auto;
+    z-index: 3;
+
+    .yc-cart {
+        margin-bottom: 64px;
+        .title {
+            text-align: center;
+            font-size: 40px;
+            padding: 16px;
+            margin: 0;
+            color: #333;
+            font-family: 'Tangerine', cursive;
+        }
+
+        .yc-cart-items {
+            max-width: 960px;
+            margin: 16px auto;
+            table {
+                margin: 0 auto;
+
+                .yc-cart-price {
+                    display: inline-block;
+                    position: absolute;
+                    top: -24px;
+                    font-size: 24px;
+                    right: 0;
+                    font-family: 'Tangerine', cursive;
+                    color: #fd5d99;
+                    -webkit-transition: all 0.3s;
+                    transition: all 0.3s;
+
+                    span {
+                        background: url(/assets/images/rupee.png) center left no-repeat;
+                        background-size: 10px;
+                        padding-left: 10px;
+                        color: #333;
+                        opacity: 0.8;
+                        font-family: Helvetica, Arial, sans-serif;
+                        font-size: 16px;
+                    }
+                }
+                .yc-cart-item {
+                    .yc-item-title {
+                        display: flex;
+                        border-bottom-color: #2196f3;
+                        border-top-color: #c7c7c7;
+                        border-bottom-width: 2px;
+                        .yc-item-image {
+                            height: 60px;
+                            width: 60px;
+                            background-size: contain;
+                        }
+                        .yc-item-title-text {
+                            line-height: 52px;
+                        }
+
+                        .yc-cart-price-mobile {
+                            position: absolute;
+                            bottom: -24px;
+                            left: 84px;
+
+                            @media screen and (min-width: 600px) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                .yc-item-quantity {
+                    display: flex;
+                    padding: 0px 32px;
+                    .yc-remove {
+                        color: #E91E63;
+                        cursor: pointer;
+                        &.disable {
+                            color: #333;
+                            pointer-events: none;
+                        }
+                    }
+                    .yc-add {
+                        color: #009688;
+                        cursor: pointer;
+                    }
+                    input {
+                        width: 24px;
+                        height: 24px;
+                        text-align: center;
+                        font-size: 16px;
+                        background: transparent;
+                        outline: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        -ms-appearance: none;
+                        -o-appearance: none;
+                        appearance: none;
+                        box-shadow: none;
+                        border: none;
+                    }
+                    input[type=number]::-webkit-inner-spin-button, 
+                    input[type=number]::-webkit-outer-spin-button { 
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        margin: 0; 
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        top: 56px;
+    }
+}
+
+.yc-cart-empty {
+    font-size: 48px;
+    text-align: center;
+    margin-top: 60px;
+    font-family: 'Tangerine', cursive;
+}
+
 .yc-product-details-overlay-container {
     position: fixed;
     width: 100%;
@@ -157,6 +322,7 @@
     background: rgba(0,0,0,0.5);
     z-index: 1;
     top: 64px;
+    z-index: 3;
 
     .yc-product-details-overlay {
         display: flex;
@@ -171,7 +337,7 @@
             width: 400px;
 
             .yc-product-image {
-                background-image: url(/assets/images/biscuits/pista_badam.jpg);
+                background: url(/assets/images/no-image-icon.png) center no-repeat;
                 height: 250px;
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -288,4 +454,20 @@
     }
 
 
+}
+
+@media screen and (max-width: 600px) {
+    .only-mobile {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .only-mobile {
+        display: auto;
+    }
+}
+
+.mdl-data-table tbody tr:hover {
+    background: transparent;
 }

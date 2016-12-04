@@ -3,18 +3,23 @@
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title logo">YummyChennai</span>
       <div class="mdl-layout-spacer"></div>
-      <div class="yc-search mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="fixed-header-drawer-exp">
-          <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="sample" [(ngModel)]="searchTerm"
-                 placeholder="search products" id="fixed-header-drawer-exp">
+      <div [hidden]="isCart" style="display: flex;">
+        <div class="yc-search mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                    mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon"
+                for="fixed-header-drawer-exp">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" name="sample" [(ngModel)]="searchTerm"
+                  placeholder="search products" id="fixed-header-drawer-exp">
+          </div>
         </div>
+        <yc-cart-meta-info [count]="cartItems.length" (click)="openCart()"></yc-cart-meta-info>
       </div>
-      <yc-cart-meta-info [count]="cartItems.length"></yc-cart-meta-info>
+      <div [hidden]="!isCart">
+        <i class="material-icons yc-close-cart" (click)="closeCart()">close</i>
+      </div>
     </div>
   </header>
   <main class="mdl-layout__content">
@@ -51,6 +56,7 @@
           </div>
         </div>
       </div>
+      
     </div>
   </main>
 </div>
@@ -92,5 +98,49 @@
         </button>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="yc-cart-overlay-container" *ngIf="isCart" [@ycSlideBottomCart]="'in'">
+  <div class="yc-cart">
+    <ng-container *ngIf="cartItems.length > 0">
+      <p class="title">Products in cart</p>
+      <div class="yc-cart-items">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+          <div class="yc-cart-price">
+            Total Price: <span>{{getTotalPrice()}}</span>
+          </div>
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Name</th>
+              <th style="text-align: center;">quantity</th>
+              <th class="only-mobile">unit price</th>
+              <th class="only-mobile">price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of cartItems" class="yc-cart-item">
+              <td class="mdl-data-table__cell--non-numeric yc-item-title">
+                <div class="yc-item-image" [style.background-image]="'url(' + product.image + ')'"></div>
+                <div class="yc-item-title-text">{{product.name}}</div>
+                <div class="yc-cart-price-mobile">Price: {{product.quantity * computeDiscountPrice(product.price, product.offer)}}</div>
+              </td>
+              <td>
+                <div class="yc-item-quantity">
+                  <i class="material-icons yc-remove" [class.disable]="product.quantity == 0" (click)="product.quantity = product.quantity - 1">remove_circle_outline</i>
+                  <input type="number" [(ngModel)]="product.quantity">
+                  <i class="material-icons yc-add" (click)="product.quantity = product.quantity + 1">add_circle_outline</i>
+                </div>
+              </td>
+              <td class="only-mobile">{{computeDiscountPrice(product.price, product.offer)}}</td>
+              <td class="only-mobile">{{product.quantity * computeDiscountPrice(product.price, product.offer)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="cartItems.length == 0">
+      <p class="yc-cart-empty">Your cart is empty</p>
+    </ng-container>
   </div>
 </div>
