@@ -71,6 +71,9 @@ export class AppComponent implements OnInit {
     let storedProducts = JSON.parse(localStorage.getItem('products'));
     if (storedProducts && storedProducts.length > 0) {
       storedProducts.forEach((product, index) => {
+        if (product.quantity === 0 && product.inCart) {
+          product.inCart = false;
+        }
         this.products.push(Object.assign({}, product));
       });
       this.cartItems = this.products.filter(item => {
@@ -145,6 +148,18 @@ export class AppComponent implements OnInit {
       totalPrice += (item.quantity * this.computeDiscountPrice(item.price, item.offer));
     });
     return totalPrice;
+  }
+
+  increaseQuantity(product: Product) {
+    product.quantity = product.quantity + 1;
+    localStorage.setItem('products', JSON.stringify(this.products));
+  }
+
+  decreaseQuantity(product: Product) {
+    if (product.quantity > 0) {
+      product.quantity = product.quantity - 1;
+      localStorage.setItem('products', JSON.stringify(this.products));
+    }
   }
 
 }

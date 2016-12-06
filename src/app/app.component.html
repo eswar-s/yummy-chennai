@@ -112,8 +112,8 @@
           </div>
           <thead>
             <tr>
-              <th class="mdl-data-table__cell--non-numeric">Name</th>
-              <th style="text-align: center;">quantity</th>
+              <th>Name</th>
+              <th>quantity</th>
               <th class="only-mobile">unit price (Original) </th>
               <th class="only-mobile">unit price (Offer) </th>
               <th class="only-mobile">price</th>
@@ -121,16 +121,23 @@
           </thead>
           <tbody>
             <tr *ngFor="let product of cartItems" class="yc-cart-item">
-              <td class="mdl-data-table__cell--non-numeric yc-item-title">
-                <div class="yc-item-image" [style.background-image]="'url(' + product.image + ')'"></div>
-                <div class="yc-item-title-text">{{product.name}}</div>
-                <div class="yc-cart-price-mobile">Price: {{product.quantity * computeDiscountPrice(product.price, product.offer)}}</div>
+              <td>
+                <div class="yc-item-title">
+                  <div class="yc-item-image" [style.background-image]="'url(' + product.image + ')'"></div>
+                  <div class="yc-item-title-text yc-not-mobile">
+                    {{product.name}}
+                  </div>
+                  <div class="yc-only-mobile yc-item-title-text-and-price">
+                    <div class="yc-style">{{product.name}}</div>
+                    <div class="yc-price">Price: {{product.quantity * computeDiscountPrice(product.price, product.offer)}}</div>
+                  </div>
+                </div>
               </td>
               <td>
                 <div class="yc-item-quantity">
-                  <i class="material-icons yc-remove" [class.disable]="product.quantity == 0" (click)="product.quantity = product.quantity - 1">remove_circle_outline</i>
+                  <i class="material-icons yc-remove" [class.disable]="product.quantity == 0" (click)="decreaseQuantity(product)">remove_circle_outline</i>
                   <input type="number" [(ngModel)]="product.quantity">
-                  <i class="material-icons yc-add" (click)="product.quantity = product.quantity + 1">add_circle_outline</i>
+                  <i class="material-icons yc-add" (click)="increaseQuantity(product)">add_circle_outline</i>
                 </div>
               </td>
               <td class="only-mobile">{{product.price}}</td>

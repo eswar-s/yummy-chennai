@@ -240,9 +240,8 @@
                 .yc-cart-item {
                     .yc-item-title {
                         display: flex;
-                        border-bottom-color: #2196f3;
-                        border-top-color: #c7c7c7;
-                        border-bottom-width: 2px;
+                        position: relative;
+
                         .yc-item-image {
                             height: 60px;
                             width: 60px;
@@ -250,15 +249,20 @@
                         }
                         .yc-item-title-text {
                             line-height: 52px;
+                            font-size: 15px;
                         }
 
-                        .yc-cart-price-mobile {
-                            position: absolute;
-                            bottom: -24px;
-                            left: 84px;
-
-                            @media screen and (min-width: 600px) {
-                                display: none;
+                        .yc-item-title-text-and-price {
+                            max-width: 120px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .yc-title {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            .yc-price {
+                                text-align: left;
                             }
                         }
                     }
@@ -465,12 +469,34 @@
 
 @media screen and (min-width: 600px) {
     .only-mobile {
-        display: auto;
+        display: table-cell;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .yc-only-mobile {
+        display: block;
+    }
+    .yc-not-mobile {
+        display: none !important;
+    }
+}
+@media screen and (min-width: 600px) {
+    .yc-only-mobile {
+        display: none !important;
+    }
+    .yc-not-mobile {
+        display: block;
     }
 }
 
 .mdl-data-table tbody tr:hover {
     background: transparent;
+}
+
+.mdl-data-table thead tr th, .mdl-data-table tbody tr td {
+    text-align: center;
 }
 
 @media screen and (max-width: 368px) {

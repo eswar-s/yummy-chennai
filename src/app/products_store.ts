@@ -78,5 +78,221 @@ export const products_store = [
         ingredients: `Sugar, Vegetable Oil, Whole Wheat Flour ( Atta ), Wheat Flour ( Maida ), Milk, 
             Skimmed Milk Powder , Cardamom, Sodium Hydrogen Carbonate , Amonium Hydrogen Carbonate`,
         link: 'http://www.haldirams.com/biscuits/attabiscuits.html'
+    },
+    {
+        name: 'Orange Bite',
+        price: 491,
+        offer: 5,
+        image: '/assets/images/packed-sweet/orange_bite.jpg',
+        description: 'Exotic Sweets Made From Dry Fruits And Milk',
+        ingredients: `Sugar,Cashew,Clarified Butter & Antioxidant ( E 330 )`,
+        link: 'http://www.haldirams.com/packed-sweet/orange-bite-725.html'
+    },
+    {
+        name: 'Mango Bite',
+        price: 491,
+        offer: 5,
+        image: '/assets/images/packed-sweet/img_5309_mango_bite.jpg',
+        description: 'Exotic Sweets Made From Dry Fruits And Milk',
+        ingredients: `Cashew, Alomond, Sugar, Clarified Butter Milk Solids`,
+        link: 'http://www.haldirams.com/packed-sweet/mango-bite-607.html'
+    },
+    {
+        name: 'Peanut Chikki',
+        price: 120,
+        offer: 5,
+        image: '/assets/images/packed-sweet/peanut_chikki_1_.jpg',
+        description: 'Exotic Sweets Made From Dry Fruits And Milk',
+        ingredients: `Peanuts, Sugar, Jaggery, Liquid Glucose & Cardamomcontains Peanutmay Contain Sesame Seed, Tree Nuts & Sulphite`,
+        link: 'http://www.haldirams.com/packed-sweet/peanut-chikki.html'
+    },
+    {
+        name: 'Rajbhog',
+        price: 200,
+        offer: 5,
+        image: '/assets/images/packed-sweet/rajbhog_1_1.jpg',
+        description: 'Sweet Cottage Cheese Dumplings',
+        ingredients: `Sugar, Water, Milk Solids (Chhanna), Rose Water, 
+            Cardamom & Saffron Contains Permitted Synthetic Food Colours Tartrazine (E102) & 
+            Sunset Yellow (E 110)Contains Milkmay Contain Sulphiliquid Shipments 
+            Will Take 6-8 Days As Per Govt. Regulations.`,
+        link: 'http://www.haldirams.com/packed-sweet/rajbhog.html'
+    },
+    {
+        name: 'Assorted Dry Fruit Bites',
+        price: 470,
+        offer: 5,
+        image: '/assets/images/packed-sweet/assorted_dry_fruits_bites.jpg',
+        description: 'Exotic Sweets Made From Dry Fruits And Milk.',
+        ingredients: `1. Mewa BiteIngredients : Sugar,Cashew,Almond,Pistachio,Clarified Butter, Milk Solids & Antioxidant ( E330) 
+            2. Chocolate BiteIngredients : Sugar,Cashew, Almond, Clarified Butter, Cocoa Powder & Antioxidant ( E 330 )
+            3.Orange BitesIngredients : Sugar,Cashew,Clarified Butter & Antioxidant ( E 330 ) 
+            4.Strawberry BitesIngredients : Sugar,Cashew,Almond,Clarified Butter & Antioxidant ( E 330 )`,
+        link: 'http://www.haldirams.com/packed-sweet/assorted-dry-fruit-bites.html'
+    },
+    {
+        name: 'Peanut Chikki Jar',
+        price: 120,
+        offer: 5,
+        image: '/assets/images/packed-sweet/peanut_jar_-_copy.jpg',
+        description: 'Exotic Sweets Made From Dry Fruits And Milk.',
+        ingredients: `Peanuts, Sugar, Jaggery, Liquid Glucose & Cardamomcontains Peanutmay Contain Sesame Seed, Tree Nuts & Sulphite`,
+        link: 'http://www.haldirams.com/packed-sweet/peanut-chikki-jar.html'
+    },
+    {
+        name: 'Date Bite',
+        price: 479,
+        offer: 5,
+        image: '/assets/images/packed-sweet/img_5249_date_bite.jpg',
+        description: 'Exotic Sweets Made From Dry Fruits And Milk.',
+        ingredients: `Cashew, Almond, Pistachio , Date, Sugar, Contains Food Colour (S) Tartrazine ( E 102 )`,
+        link: 'http://www.haldirams.com/packed-sweet/orange-bite-726.html'
+    },
+    {
+        name: 'Pista Pan',
+        price: 630,
+        offer: 5,
+        image: '/assets/images/packed-sweet/pista_paan_1.jpg',
+        description: 'Exotic Sweets Made From Dry Fruits And Milk.',
+        ingredients: `N/A`,
+        link: 'http://www.haldirams.com/packed-sweet/pista-pan-620.html'
+    },
+    {
+        name: 'Reeshte',
+        price: 403,
+        offer: 5,
+        image: '/assets/images/packed-sweet/reeshte.jpg',
+        description: 'Exotic Sweets Made From Assorted Cashew Nuts',
+        ingredients: `N/A`,
+        link: 'http://www.haldirams.com/packed-sweet/reeshte.html'
+    },
+    {
+        name: 'Singgar',
+        price: 735,
+        offer: 5,
+        image: '/assets/images/packed-sweet/singgar_1.jpg',
+        description: 'Exotic Sweets Made From Assorted Cashew Nuts.',
+        ingredients: `N/A`,
+        link: 'http://www.haldirams.com/packed-sweet/singgar.html'
+    },
+    {
+        name: 'Pavitra Bandhan',
+        price: 819,
+        offer: 5,
+        image: '/assets/images/packed-sweet/pavitra_bandhan_1.jpg',
+        description: 'Exotic Sweets Made From Assorted Cashew Nuts',
+        ingredients: `N/A`,
+        link: 'http://www.haldirams.com/packed-sweet/pavitra-bandhan.html'
+    },
+    {
+        name: 'Soan Papdi(Special Ghee)',
+        price: 90,
+        offer: 5,
+        image: '/assets/images/packed-sweet/special_soan_papdi_natural_cardamom_1.jpg',
+        description: 'Made From Pure Ghee , Blended With Natural Cardamom',
+        ingredients: `Sugar, Clarified Butter (Ghee), Chick Peas Flour, Wheat Flour, Almond, 
+            Pistachio & Cardamomcontains Almond, Pistachio, Gluten & Milkmay Contain Other Tree Nuts.`,
+        link: 'http://www.haldirams.com/packed-sweet/soan-papdi-special-ghee-437.html'
+    },
+    {
+        name: 'Soan Papdi(Orange Flavour)',
+        price: 60,
+        offer: 5,
+        image: '/assets/images/packed-sweet/orange_soan_papdi.jpg',
+        description: 'Traditional Indian Flakey Sweet Made Of Gram And With Orange Flavour',
+        ingredients: `Sugar, Refined Palmolein Oil, Wheat Flour, Chick Peas Flour, Almond, 
+            Pistachio & Cardamomcontains Almond, Pistachio & Gluten May Contain Other Tree Nuts & Milk.`,
+        link: 'http://www.haldirams.com/packed-sweet/soan-papdi-orange-flavour.html'
+    },
+    {
+        name: 'Gajak ( Jaggery Dry Fruit )',
+        price: 150,
+        offer: 5,
+        image: '/assets/images/packed-sweet/gajak_dryfruit_1.jpg',
+        description: 'The Taste, The Crunch, You Will Love To Munch',
+        ingredients: `Sugar, Jaggery, Sesame Seed, 
+            Cashew, Pistachio & Cardamome.`,
+        link: 'http://www.haldirams.com/packed-sweet/gajak-jaggery-dry-fruit.html'
+    },
+    {
+        name: 'Rasgulla',
+        price: 105,
+        offer: 5,
+        image: '/assets/images/packed-sweet/rasgulla_1_3.jpg',
+        description: 'The Taste, The Crunch, You Will Love To Munch',
+        ingredients: `Sweet Cottage Cheese Dumplings Liquid Shipments Will Take 6-8 Days As Per Govt. Regulations`,
+        link: 'http://www.haldirams.com/packed-sweet/rasgulla.html'
+    },
+    {
+        name: 'Kaju Laddu',
+        price: 456,
+        offer: 5,
+        image: '/assets/images/packed-sweet/kaju_laddu_1.jpg',
+        description: 'Exotic Sweets Made From Assorted Cashew Nuts, Pistachio & Saffron. ',
+        ingredients: `Cashew Nut, Sugar, Pistachio, Cardamom, Saffron, Sunset Yellow (E 110), 
+            Potassium Sorbate (E 202) & Silver Leaves Contains Cashew.`,
+        link: 'http://www.haldirams.com/packed-sweet/kaju-laddu.html'
+    },
+    {
+        name: 'Kaju Mix',
+        price: 430,
+        offer: 5,
+        image: '/assets/images/packed-sweet/kaju_mix_1.jpg',
+        description: 'Exotic Sweets Made From Assortde Cashew Nuts. ',
+        ingredients: `Cashew Nuts, Sugar, Pistachios, Cardamom, Saffron, Sunset Yellow,
+            Potassium Sorbate (E 202).`,
+        link: 'http://www.haldirams.com/packed-sweet/kaju-mix.html'
+    },
+    {
+        name: 'Golden Box ( Small Size )',
+        price: 600,
+        offer: 5,
+        image: '/assets/images/packed-sweet/golden_box_small.jpg',
+        description: 'Exotic Sweets Made From Dry Fruits And Milk.',
+        ingredients: `N/A`,
+        link: 'http://www.haldirams.com/packed-sweet/golden-box-small-size.html'
+    },
+    {
+        name: 'Soan Papdi',
+        price: 230,
+        offer: 5,
+        image: '/assets/images/packed-sweet/1kg_soan_papdi_box.png',
+        description: 'Traditional Indian Flakey Sweet Made Of Gram And Mixed With Dry Fruit',
+        ingredients: `Sugar, Refined Palmolein Oil, Wheat Flour, Chick Peas Flour, Almond, 
+            Pistachio & Cardamomcontains Almond, Pistachio & Gluten May Contain Other Tree Nuts & Milk.`,
+        link: 'http://www.haldirams.com/packed-sweet/soan-papdi.html'
+    },
+    {
+        name: 'Dry Fruit Bite',
+        price: 297,
+        offer: 5,
+        image: '/assets/images/packed-sweet/dryfruitbite_box_f.png',
+        description: 'Exotic Sweets Made From Dry Fruits And Milk.',
+        ingredients: `1. Mewa BiteIngredients : Sugar,Cashew,Almond,Pistachio,
+            Clarified Butter,Milk Solids & Antioxidant ( E330)
+            2. Chocolate BiteIngredients : Sugar,Cashew, Almond, Clarified Butter, Cocoa Powder & Antioxidant ( E 330 )
+            3.Orange BitesIngredients : Sugar,Cashew,Clarified Butter & Antioxidant ( E 330 ) 
+            4.Strawberry BitesIngredients : Sugar,Cashew,Almond,Clarified Butter & Antioxidant ( E 330 )`,
+        link: 'http://www.haldirams.com/packed-sweet/dry-fruit-bite.html'
+    },
+    {
+        name: 'Gulab Jamun',
+        price: 200,
+        offer: 5,
+        image: '/assets/images/packed-sweet/gulab_jamun_1_1.jpg',
+        description: 'Sweet Dumplings Soaked In Sugar Syrup. ',
+        ingredients: `Sugar, Water, Milk Solids, Refined Palmolein Oil, 
+            Wheat Flour & Cardamomcontains Milk & Glutenmay Contain Sulphite.`,
+        link: 'http://www.haldirams.com/packed-sweet/gulab-jamun.html'
+    },
+    {
+        name: 'Gajak ( Jaggery Khasta )',
+        price: 115,
+        offer: 5,
+        image: '/assets/images/packed-sweet/gajak.jpg',
+        description: 'The Taste, The Crunch, You Will Love To Munch',
+        ingredients: `Sugar, Jaggery, Sesame Seed, 
+            Cashew, Pistachio & Cardamome.`,
+        link: 'http://www.haldirams.com/packed-sweet/gajak-jaggery-khasta.html'
     }
 ];
