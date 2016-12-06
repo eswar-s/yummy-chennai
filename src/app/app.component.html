@@ -145,11 +145,20 @@
               <td class="only-mobile">{{product.quantity * computeDiscountPrice(product.price, product.offer)}}</td>
             </tr>
           </tbody>
+          <div class="yc-place-order">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+              (click)="placeOrder()">
+              Order Now
+            </button>
+          </div>
         </table>
       </div>
     </ng-container>
-    <ng-container *ngIf="cartItems.length == 0">
+    <ng-container *ngIf="cartItems.length == 0 && orderedItems.length == 0">
       <p class="yc-cart-empty">Your cart is empty</p>
+    </ng-container>
+    <ng-container *ngIf="orderedItems.length > 0">
+      <p class="yc-order-placed-text">Thank you, <br> Your order has been placed</p>
     </ng-container>
   </div>
 </div>

@@ -59,15 +59,17 @@ export class AppComponent implements OnInit {
   title = 'yc works!';
 
   products: Product[];
-  cartItems: any[];
+  cartItems: Product[];
   searchTerm: string;
   selectedProduct: Product;
+  orderedItems: Product[];
 
   isCart: boolean = false;
 
   constructor() {
     this.products = [];
     this.cartItems = [];
+    this.orderedItems = [];
     let storedProducts = JSON.parse(localStorage.getItem('products'));
     if (storedProducts && storedProducts.length > 0) {
       storedProducts.forEach((product, index) => {
@@ -130,6 +132,7 @@ export class AppComponent implements OnInit {
   }
 
   closeCart() {
+    this.orderedItems = [];
     this.isCart = false;
     this.products.forEach(item => {
       if (item.quantity === 0 && item.inCart) {
@@ -160,6 +163,16 @@ export class AppComponent implements OnInit {
       product.quantity = product.quantity - 1;
       localStorage.setItem('products', JSON.stringify(this.products));
     }
+  }
+
+  placeOrder() {
+    this.cartItems.forEach(item => {
+      item.quantity = 0;
+      item.inCart = false;
+    });
+    this.orderedItems = this.cartItems.slice(0);
+    this.cartItems = [];
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
 
 }

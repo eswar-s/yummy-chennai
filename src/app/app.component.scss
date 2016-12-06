@@ -342,6 +342,14 @@
     font-family: 'Tangerine', cursive;
 }
 
+.yc-order-placed-text {
+    font-size: 32px;
+    text-align: center;
+    margin-top: 60px;
+    font-family: 'Tangerine', cursive;
+    line-height: 48px;
+}
+
 .yc-product-details-overlay-container {
     position: fixed;
     width: 100%;
@@ -481,7 +489,17 @@
 
     }
 
+}
 
+.yc-place-order {
+    position: absolute;
+    bottom: -48px;
+    text-align: right;
+    width: 100%;
+
+    @media screen and (max-width: 600px) {
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 600px) {
